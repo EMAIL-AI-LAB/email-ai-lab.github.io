@@ -1,105 +1,137 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="EMAIL AI Lab Projects — AI Drone, Embedded AI, Computer Vision, and Autonomous Systems research at Purdue University Northwest." />
-  <meta name="theme-color" content="#050810" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="EMAIL AI Lab Projects — AI Drone Platform, Embedded AI Systems, Computer Vision Research, and more."/>
+  <meta name="theme-color" content="#030712"/>
 
-  <!-- SECURITY HEADERS (same policy on all pages) -->
+  <!-- SECURITY META TAGS (same policy on all pages) -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests;" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
+        content="default-src 'self';
+                 script-src 'self' https://cdn.tailwindcss.com 'nonce-eml2025prj';
+                 style-src  'self' 'unsafe-inline' https://fonts.googleapis.com;
+                 font-src   'self' https://fonts.gstatic.com;
+                 img-src    'self' data: https:;
+                 connect-src 'self';
+                 frame-src  'none';
+                 object-src 'none';
+                 base-uri   'self';
+                 form-action 'self';
+                 upgrade-insecure-requests;"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="X-Frame-Options" content="DENY"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"/>
 
   <title>Projects — EMAIL AI Lab</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com" nonce="eml2025prj"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet"/>
 
   <style>
-    :root{--bg:#050810;--surface:rgba(10,15,30,0.85);--surface2:rgba(14,20,42,0.6);--border:rgba(56,189,248,0.1);--border-hi:rgba(56,189,248,0.35);--accent:#38bdf8;--accent2:#818cf8;--accent3:#34d399;--text:#e2e8f0;--muted:#64748b;--dim:#1e293b;--glow:0 0 40px rgba(56,189,248,0.15);}
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-    #neural-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;}
-    nav,main,section,footer,header,.page-header{position:relative;z-index:10;}
-    body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:0.5;}
+    :root {
+      --bg:#030712; --bg-2:#060d1f; --bg-card:rgba(8,15,35,0.7); --bg-card-hi:rgba(12,22,52,0.85);
+      --border:rgba(99,202,242,0.1); --border-hi:rgba(99,202,242,0.3); --border-glow:rgba(99,202,242,0.5);
+      --teal:#63caf2; --violet:#a78bfa; --mint:#6ee7b7; --amber:#fbbf24;
+      --text:#e2e8f0; --text-2:#94a3b8; --text-3:#475569;
+      --font-body:'Outfit',sans-serif; --font-mono:'Fira Code',monospace; --font-display:'Bricolage Grotesque',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.4;}
+    .aurora{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);z-index:0;}
+    .aurora-1{width:500px;height:500px;top:-150px;left:-100px;background:radial-gradient(circle,rgba(99,202,242,0.07) 0%,transparent 70%);animation:orb1 20s ease-in-out infinite alternate;}
+    .aurora-2{width:400px;height:400px;bottom:10%;right:-100px;background:radial-gradient(circle,rgba(167,139,250,0.06) 0%,transparent 70%);animation:orb2 25s ease-in-out infinite alternate;}
+    @keyframes orb1{0%{transform:translate(0,0)}100%{transform:translate(60px,80px)}}
+    @keyframes orb2{0%{transform:translate(0,0)}100%{transform:translate(-80px,40px)}}
+    body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.018'/%3E%3C/svg%3E");opacity:0.6;}
+    nav,main,section,footer,header,.content{position:relative;z-index:10;}
 
-    #navbar{background:rgba(5,8,16,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s;}
-    .nav-link{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;position:relative;padding-bottom:2px;}
-    .nav-link::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s cubic-bezier(.4,0,.2,1);}
-    .nav-link:hover,.nav-link.active{color:var(--accent);}
+    #navbar{background:rgba(3,7,18,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow 0.4s,border-color 0.4s;}
+    #navbar.scrolled{box-shadow:0 8px 48px rgba(0,0,0,0.8);border-color:var(--border-hi);}
+    .nav-link{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2);transition:color 0.25s;position:relative;padding-bottom:3px;}
+    .nav-link::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--teal),var(--violet));transition:width 0.35s cubic-bezier(.4,0,.2,1);}
+    .nav-link:hover{color:var(--teal);}
     .nav-link:hover::after,.nav-link.active::after{width:100%;}
+    .nav-link.active{color:var(--teal);}
 
-    .btn-p{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:13px 28px;background:var(--accent);color:#000;font-weight:700;transition:box-shadow 0.25s,transform 0.2s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
-    .btn-p::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.2);transform:translateX(-101%);transition:transform 0.3s;}
-    .btn-p:hover{box-shadow:0 0 30px rgba(56,189,248,0.5),0 4px 20px rgba(0,0,0,0.4);transform:translateY(-1px);}
-    .btn-p:hover::after{transform:translateX(0);}
-    .btn-g{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:12px 24px;border:1px solid var(--border-hi);color:var(--text);transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
-    .btn-g:hover{border-color:var(--accent);color:var(--accent);background:rgba(56,189,248,0.06);}
+    .btn-primary{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;font-weight:600;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;transition:box-shadow 0.3s,transform 0.2s;}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:transform 0.4s;}
+    .btn-primary:hover{box-shadow:0 0 40px rgba(99,202,242,0.4),0 8px 30px rgba(0,0,0,0.4);transform:translateY(-2px);}
+    .btn-primary:hover::before{transform:translateX(0);}
+    .btn-secondary{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 24px;border:1px solid var(--border-hi);color:var(--text);display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;background:transparent;}
+    .btn-secondary:hover{border-color:var(--teal);color:var(--teal);background:rgba(99,202,242,0.06);box-shadow:0 0 20px rgba(99,202,242,0.1);}
 
-    .sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;line-height:1.1;}
-    .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;}
-    .eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent);}
-    .tgb{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .sec-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;}
+    .sec-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);}
+    .sec-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-0.025em;line-height:1.1;}
+    .grad-text{background:linear-gradient(135deg,#e2e8f0 0%,#94a3b8 30%,var(--teal) 60%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .grad-text-warm{background:linear-gradient(135deg,var(--teal) 0%,var(--mint) 50%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-    .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--border);color:var(--muted);}
-    .ta{border-color:rgba(56,189,248,0.3);color:var(--accent);background:rgba(56,189,248,0.06);}
-    .ti{border-color:rgba(129,140,248,0.3);color:var(--accent2);background:rgba(129,140,248,0.06);}
-    .tg{border-color:rgba(52,211,153,0.3);color:var(--accent3);background:rgba(52,211,153,0.06);}
-    .to{border-color:rgba(251,146,60,0.3);color:#fb923c;background:rgba(251,146,60,0.06);}
+    .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--border);color:var(--text-3);}
+    .tag-teal{border-color:rgba(99,202,242,0.3);color:var(--teal);background:rgba(99,202,242,0.06);}
+    .tag-violet{border-color:rgba(167,139,250,0.3);color:var(--violet);background:rgba(167,139,250,0.06);}
+    .tag-mint{border-color:rgba(110,231,183,0.3);color:var(--mint);background:rgba(110,231,183,0.06);}
+    .tag-amber{border-color:rgba(251,191,36,0.3);color:var(--amber);background:rgba(251,191,36,0.06);}
 
-    .gc{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;position:relative;overflow:hidden;}
-    .gc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;pointer-events:none;}
-    .gc:hover{border-color:var(--border-hi);box-shadow:var(--glow);transform:translateY(-4px);}
-    .gc:hover::before{opacity:1;}
+    .glass-card{background:var(--bg-card);border:1px solid var(--border);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:border-color 0.35s,box-shadow 0.35s,transform 0.35s;position:relative;overflow:hidden;}
+    .glass-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,202,242,0.03) 0%,transparent 50%);opacity:0;transition:opacity 0.35s;pointer-events:none;}
+    .glass-card:hover{border-color:var(--border-hi);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(99,202,242,0.08);}
+    .glass-card:hover::before{opacity:1;}
 
-    /* Project grid cards */
-    .proj-item{background:var(--surface2);border:1px solid var(--border);padding:28px;transition:all 0.3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
-    .proj-item::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:linear-gradient(180deg,var(--accent),var(--accent2));transition:height 0.35s cubic-bezier(.4,0,.2,1);}
-    .proj-item:hover{border-color:var(--border-hi);background:rgba(14,20,42,0.9);transform:translateY(-4px);box-shadow:0 12px 40px rgba(56,189,248,0.1);}
-    .proj-item:hover::before{height:100%;}
+    /* Featured project card */
+    .featured-card{background:var(--bg-card);border:1px solid var(--border);backdrop-filter:blur(16px);position:relative;overflow:hidden;transition:all 0.4s;}
+    .featured-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--violet),var(--mint));}
+    .featured-card:hover{border-color:var(--border-hi);box-shadow:0 0 60px rgba(99,202,242,0.1);}
 
-    /* Proj item hidden for filter */
-    .proj-item.hidden-filter{display:none;}
+    /* Project grid card */
+    .proj-card{background:var(--bg-card);border:1px solid var(--border);padding:28px;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+    .proj-card .side-accent{position:absolute;top:0;left:0;width:2px;height:0;background:linear-gradient(180deg,var(--teal),var(--violet));transition:height 0.4s cubic-bezier(.4,0,.2,1);}
+    .proj-card:hover{border-color:var(--border-hi);background:var(--bg-card-hi);transform:translateX(5px);box-shadow:-6px 0 40px rgba(99,202,242,0.07);}
+    .proj-card:hover .side-accent{height:100%;}
 
-    /* Filter buttons */
-    .filter-btn{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--muted);transition:all 0.2s;cursor:pointer;background:transparent;}
-    .filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(56,189,248,0.06);}
-    .filter-btn.active{font-weight:600;}
+    /* Progress bar */
+    .prog-track{height:3px;background:rgba(99,202,242,0.1);overflow:hidden;}
+    .prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--violet));width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);}
 
-    /* Progress */
-    .pt{height:2px;background:rgba(56,189,248,0.1);overflow:hidden;}
-    .pf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+    .glow-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-hi),transparent);}
 
-    .rev{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(.4,0,.2,1),transform 0.7s cubic-bezier(.4,0,.2,1);}
-    .rev.vis{opacity:1;transform:translateY(0);}
-    .d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}.d5{transition-delay:0.5s;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(.4,0,.2,1),transform 0.8s cubic-bezier(.4,0,.2,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.2s;}.delay-3{transition-delay:0.3s;}.delay-4{transition-delay:0.4s;}.delay-5{transition-delay:0.5s;}
 
-    .gl{height:1px;background:linear-gradient(90deg,transparent,var(--border-hi),transparent);opacity:0.25;}
-    .footerbg{background-image:linear-gradient(rgba(56,189,248,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.025) 1px,transparent 1px);background-size:60px 60px;}
-
-    #mobile-menu{display:none;background:rgba(5,8,16,0.98);backdrop-filter:blur(20px);border-top:1px solid var(--border);}
+    #mobile-menu{display:none;background:rgba(3,7,18,0.98);backdrop-filter:blur(24px);border-top:1px solid var(--border);}
     #mobile-menu.open{display:block;}
+    a.hover-teal{transition:color 0.2s;} a.hover-teal:hover{color:var(--teal);}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--teal),var(--violet));z-index:100;transition:width 0.1s linear;}
 
-    /* No results message */
-    #no-results{display:none;text-align:center;padding:60px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+    .filter-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--text-3);cursor:pointer;transition:all 0.2s;background:transparent;}
+    .filter-btn:hover,.filter-btn.active{border-color:var(--teal);color:var(--teal);background:rgba(99,202,242,0.06);}
+
+    .footer-grid-bg{background-image:linear-gradient(rgba(99,202,242,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(99,202,242,0.02) 1px,transparent 1px);background-size:56px 56px;}
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);position:relative;display:inline-block;}
+    .pulse-dot::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:rgba(110,231,183,0.3);animation:pulse-ring 2s ease-in-out infinite;}
+    @keyframes pulse-ring{0%,100%{transform:scale(1);opacity:0.7}50%{transform:scale(2.2);opacity:0}}
   </style>
 </head>
 <body>
-<canvas id="neural-canvas" aria-hidden="true"></canvas>
 
-<!-- ═══ NAVBAR ═══ -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="aurora aurora-1" aria-hidden="true"></div>
+<div class="aurora aurora-2" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- NAVBAR -->
 <nav id="navbar" class="sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3" aria-label="HOME">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 8px;background:var(--accent);color:#000;letter-spacing:0.1em">EMAIL</span>
+    <a href="index.html" class="flex items-center gap-3" aria-label="EMAIL AI Lab — Home">
+      <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 10px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;letter-spacing:0.12em">EMAIL</span>
       <div class="flex flex-col leading-none">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.1em">AI Lab</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase">Purdue NW</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal);letter-spacing:0.1em">AI Lab</span>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-3);letter-spacing:0.15em;text-transform:uppercase">Purdue NW</span>
       </div>
     </a>
     <div class="hidden md:flex items-center gap-10">
@@ -109,105 +141,162 @@
       <a href="join.html"     class="nav-link">Join</a>
     </div>
     <div class="hidden md:flex items-center gap-3">
-      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-g" aria-label="GitHub">
+      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-secondary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         GitHub
       </a>
-      <a href="join.html" class="btn-p">Join Lab</a>
+      <a href="join.html" class="btn-primary">Join the Lab</a>
     </div>
-    <button id="menu-toggle" class="md:hidden p-2" style="color:var(--muted)" aria-label="Toggle menu" aria-expanded="false">
-      <svg id="ico-open"  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button id="menu-toggle" class="md:hidden p-2" style="color:var(--text-2)" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="ico-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg id="ico-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
   <div id="mobile-menu">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
-      <a href="index.html"    style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Home</a>
-      <a href="projects.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">Projects</a>
-      <a href="members.html"  style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Members</a>
-      <a href="join.html"     style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Join</a>
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
+      <a href="index.html"    style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Home</a>
+      <a href="projects.html" style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal)">Projects</a>
+      <a href="members.html"  style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Members</a>
+      <a href="join.html"     style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Join</a>
+      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
     </div>
   </div>
 </nav>
 
-<!-- ═══ PAGE HEADER ═══ -->
-<header class="page-header border-b" style="border-color:var(--border);background:rgba(5,8,16,0.6)">
+<main>
+
+<!-- PAGE HEADER -->
+<header class="border-b" style="border-color:var(--border);background:linear-gradient(180deg,rgba(6,13,31,0.8),transparent)">
   <div class="max-w-7xl mx-auto px-6 py-20">
-    <div class="eyebrow rev mb-5">Lab Projects</div>
-    <h1 class="sec-title rev d1 mb-5">Research &amp; Engineering<br><span class="tgb">Projects.</span></h1>
-    <p class="rev d2 max-w-xl" style="color:var(--muted);line-height:1.8">Active research, engineering builds, and exploratory work across machine learning, embedded systems, autonomy, and vision.</p>
+    <div class="sec-eyebrow reveal mb-5">Lab Projects</div>
+    <h1 class="sec-title reveal delay-1 mb-5">
+      Research &amp; <span class="grad-text-warm">Engineering</span>
+    </h1>
+    <p class="reveal delay-2 max-w-2xl" style="color:var(--text-2);font-size:16px;line-height:1.85">
+      Active research, engineering builds, and exploratory work across ML, embedded systems, autonomy, and vision.
+    </p>
+
     <!-- Status legend -->
-    <div class="rev d3 flex flex-wrap gap-3 mt-8">
-      <span class="tag ta">● Active</span>
-      <span class="tag to">● In Development</span>
-      <span class="tag" style="color:var(--muted)">● Planned</span>
+    <div class="reveal delay-3 flex flex-wrap gap-4 mt-8">
+      <span class="flex items-center gap-2" style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">
+        <span class="pulse-dot" aria-hidden="true"></span> Active
+      </span>
+      <span class="flex items-center gap-2" style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--violet);display:inline-block" aria-hidden="true"></span> In Development
+      </span>
+      <span class="flex items-center gap-2" style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--text-3);display:inline-block" aria-hidden="true"></span> Planned
+      </span>
     </div>
   </div>
 </header>
 
-<!-- ═══ FEATURED PROJECT ═══ -->
-<section class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="feat-h">
-  <div class="eyebrow rev mb-8">Featured Project</div>
+<!-- FEATURED PROJECT -->
+<section class="max-w-7xl mx-auto px-6 py-16" aria-labelledby="feat-h">
+  <div class="sec-eyebrow reveal mb-8">Featured Project</div>
 
-  <div class="gc p-8 md:p-12 rev" style="border-color:rgba(56,189,248,0.2);box-shadow:0 0 80px rgba(56,189,248,0.06)">
-    <div class="grid md:grid-cols-2 gap-12 items-start">
+  <!-- CUSTOMIZE this entire featured block -->
+  <div class="featured-card p-8 md:p-12 reveal delay-1">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+      <!-- Left: description -->
       <div>
-        <div class="flex items-center gap-3 mb-6">
-          <span class="tag ta">Active</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2024 — Present</span>
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="tag tag-teal">
+            <span class="pulse-dot" style="width:6px;height:6px;margin-right:4px" aria-hidden="true"></span>
+            Active
+          </span>
+          <!-- CUSTOMIZE year -->
+          <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2024 — Present</span>
         </div>
-        <h2 id="feat-h" class="sec-title mb-4">AI Drone Platform</h2>
-        <p class="mb-6" style="color:var(--muted);line-height:1.85">Custom-built autonomous quadcopter with onboard deep learning inference for obstacle detection, real-time navigation in GPS-denied environments, and vision-based target tracking. Built from hardware up — frame design, flight controller tuning, and custom vision pipeline.</p>
-        <!-- Tech stack -->
-        <div class="mb-6">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Tech Stack</div>
+
+        <h2 id="feat-h" style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.025em;margin-bottom:16px">
+          AI Drone Platform
+        </h2>
+
+        <!-- CUSTOMIZE description -->
+        <p class="mb-6" style="color:var(--text-2);font-size:16px;line-height:1.85">
+          A custom-built autonomous quadcopter integrating onboard deep learning inference for obstacle detection,
+          real-time navigation in GPS-denied environments, and vision-based target tracking.
+          Built hardware-up — frame design, flight controller tuning, and a custom vision pipeline.
+        </p>
+
+        <!-- Tech stack — CUSTOMIZE -->
+        <div class="mb-8">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:12px">Tech Stack</div>
           <div class="flex flex-wrap gap-2">
-            <span class="tag">Python</span><span class="tag">ROS2</span><span class="tag">YOLOv8</span>
-            <span class="tag">Raspberry Pi</span><span class="tag">OpenCV</span><span class="tag">PX4</span>
+            <span class="tag">Python</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">YOLOv8</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">PX4</span>
           </div>
         </div>
-        <a href="https://github.com/your-org/ai-drone" target="_blank" rel="noopener noreferrer" class="btn-p" aria-label="View Drone Project on GitHub">
+
+        <!-- CUSTOMIZE GitHub link -->
+        <a href="https://github.com/your-org/ai-drone" target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          View on GitHub
+          View Repository
         </a>
       </div>
-      <!-- Progress panel -->
+
+      <!-- Right: progress + objectives — CUSTOMIZE percentages and goals -->
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:20px">Project Progress</div>
-        <div class="flex flex-col gap-5">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:20px">Project Progress</div>
+
+        <div class="flex flex-col gap-5 mb-8">
+          <!-- CUSTOMIZE progress bars -->
           <div>
-            <div class="flex justify-between mb-2" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">
-              <span>Hardware Assembly</span><span>100%</span>
+            <div class="flex justify-between mb-2">
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-2)">Hardware Assembly</span>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">100%</span>
             </div>
-            <div class="pt"><div class="pf" data-w="100%"></div></div>
+            <div class="prog-track"><div class="prog-fill" data-width="100"></div></div>
           </div>
           <div>
-            <div class="flex justify-between mb-2" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">
-              <span>Vision Pipeline</span><span>75%</span>
+            <div class="flex justify-between mb-2">
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-2)">Vision Pipeline</span>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">75%</span>
             </div>
-            <div class="pt"><div class="pf" data-w="75%"></div></div>
+            <div class="prog-track"><div class="prog-fill" data-width="75"></div></div>
           </div>
           <div>
-            <div class="flex justify-between mb-2" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">
-              <span>Autonomous Nav</span><span>40%</span>
+            <div class="flex justify-between mb-2">
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-2)">Autonomous Navigation</span>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">40%</span>
             </div>
-            <div class="pt"><div class="pf" data-w="40%"></div></div>
+            <div class="prog-track"><div class="prog-fill" data-width="40"></div></div>
           </div>
           <div>
-            <div class="flex justify-between mb-2" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">
-              <span>GPS-Denied Mode</span><span>20%</span>
+            <div class="flex justify-between mb-2">
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-2)">GPS-Denied Mode</span>
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">20%</span>
             </div>
-            <div class="pt"><div class="pf" data-w="20%"></div></div>
+            <div class="prog-track"><div class="prog-fill" data-width="20"></div></div>
           </div>
         </div>
-        <!-- Objectives -->
-        <div class="mt-8 p-5" style="background:rgba(5,8,16,0.8);border:1px solid var(--border)">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Objectives</div>
+
+        <!-- Objectives — CUSTOMIZE -->
+        <div class="glass-card p-6">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:14px">Key Objectives</div>
           <div class="flex flex-col gap-3">
-            <div class="flex gap-2 text-sm" style="color:var(--muted)"><span style="color:var(--accent)">→</span> Sub-50ms obstacle detection latency</div>
-            <div class="flex gap-2 text-sm" style="color:var(--muted)"><span style="color:var(--accent)">→</span> Indoor nav without GPS or external markers</div>
-            <div class="flex gap-2 text-sm" style="color:var(--muted)"><span style="color:var(--accent)">→</span> 15+ minute autonomous flight endurance</div>
-            <div class="flex gap-2 text-sm" style="color:var(--muted)"><span style="color:var(--accent)">→</span> Open-source vision pipeline release</div>
+            <div class="flex gap-3">
+              <span style="color:var(--teal);margin-top:2px;flex-shrink:0">→</span>
+              <span style="font-size:14px;color:var(--text-2)">Sub-50ms obstacle detection latency</span>
+            </div>
+            <div class="flex gap-3">
+              <span style="color:var(--teal);margin-top:2px;flex-shrink:0">→</span>
+              <span style="font-size:14px;color:var(--text-2)">Indoor nav without GPS or external markers</span>
+            </div>
+            <div class="flex gap-3">
+              <span style="color:var(--teal);margin-top:2px;flex-shrink:0">→</span>
+              <span style="font-size:14px;color:var(--text-2)">15+ minute autonomous flight endurance</span>
+            </div>
+            <div class="flex gap-3">
+              <span style="color:var(--teal);margin-top:2px;flex-shrink:0">→</span>
+              <span style="font-size:14px;color:var(--text-2)">Full open-source release of vision pipeline</span>
+            </div>
           </div>
         </div>
       </div>
@@ -215,248 +304,317 @@
   </div>
 </section>
 
-<div class="gl max-w-7xl mx-auto px-6" aria-hidden="true"></div>
+<div class="glow-divider max-w-7xl mx-auto" aria-hidden="true"></div>
 
-<!-- ═══ ALL PROJECTS WITH FILTER ═══ -->
-<section class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="all-h">
-  <div class="flex items-center justify-between flex-wrap gap-6 mb-8">
-    <div>
-      <div class="eyebrow rev mb-4">All Projects</div>
-      <h2 id="all-h" class="sec-title rev d1">Full project catalog.</h2>
+<!-- ALL PROJECTS GRID -->
+<section class="max-w-7xl mx-auto px-6 py-16" aria-labelledby="all-h">
+  <div class="flex flex-wrap items-center justify-between gap-6 mb-10">
+    <h2 id="all-h" class="sec-title reveal">All Projects</h2>
+
+    <!-- Filter buttons (visual only — all projects always shown on static site) -->
+    <div class="reveal delay-1 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="dev">In Dev</button>
+      <button class="filter-btn" data-filter="planned">Planned</button>
     </div>
   </div>
 
-  <!-- Filter bar (functional — JS filters by data-category) -->
-  <div class="rev flex flex-wrap gap-2 mb-10" role="group" aria-label="Filter projects">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="ml">Machine Learning</button>
-    <button class="filter-btn" data-filter="embedded">Embedded AI</button>
-    <button class="filter-btn" data-filter="autonomy">Autonomy</button>
-    <button class="filter-btn" data-filter="vision">Vision</button>
-  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="projects-grid">
 
-  <!-- Project count display -->
-  <p id="proj-count" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:24px" aria-live="polite"></p>
+    <!-- ════ PROJECT CARD TEMPLATE ════
+         Copy this block to add more projects.
+         CUSTOMIZE: title, description, tags, status, year, GitHub link
+    ════════════════════════════════ -->
 
-  <div id="proj-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-    <!-- Each card has data-category for JS filtering -->
-    <div class="proj-item rev d1" data-category="autonomy">
-      <div class="flex items-center justify-between mb-5"><span class="tag ta">Active</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2024</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">Embedded AI Systems</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Porting trained neural networks to STM32 and Arduino Nano 33 BLE for real-time classification with sub-5ms latency using TensorFlow Lite and Edge Impulse.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">TinyML</span><span class="tag">STM32</span><span class="tag">TF Lite</span><span class="tag">C++</span></div>
-      <a href="https://github.com/your-org/embedded-ai" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)">GitHub ↗</a>
+    <!-- Embedded AI -->
+    <div class="proj-card reveal delay-1" data-category="active">
+      <div class="side-accent" aria-hidden="true"></div>
+      <div class="flex items-center justify-between mb-5">
+        <span class="tag tag-teal">Active</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2024</span>
+      </div>
+      <h3 style="font-weight:700;font-size:17px;margin-bottom:10px">Embedded AI Systems</h3>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;flex:1;margin-bottom:16px">
+        Deploying quantized and pruned neural networks onto STM32 and Arduino Nano 33 BLE
+        for real-time sensor classification with sub-5ms latency using TF Lite and Edge Impulse.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">TinyML</span><span class="tag">STM32</span><span class="tag">TF Lite</span><span class="tag">C++</span>
+      </div>
+      <a href="https://github.com/your-org/embedded-ai" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">GitHub ↗</a>
     </div>
 
-    <div class="proj-item rev d2" data-category="vision">
-      <div class="flex items-center justify-between mb-5"><span class="tag ta">Active</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2024</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">Computer Vision Research</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Modular real-time vision pipeline for object detection, semantic segmentation, and depth estimation. Targeting Raspberry Pi + Coral TPU deployment.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">OpenCV</span><span class="tag">PyTorch</span><span class="tag">YOLOv8</span><span class="tag">Coral TPU</span></div>
-      <a href="https://github.com/your-org/vision-pipeline" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)">GitHub ↗</a>
+    <!-- Computer Vision -->
+    <div class="proj-card reveal delay-2" data-category="active">
+      <div class="side-accent" aria-hidden="true"></div>
+      <div class="flex items-center justify-between mb-5">
+        <span class="tag tag-teal">Active</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2024</span>
+      </div>
+      <h3 style="font-weight:700;font-size:17px;margin-bottom:10px">Computer Vision Research</h3>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;flex:1;margin-bottom:16px">
+        Modular real-time vision pipeline for object detection, semantic segmentation,
+        and depth estimation. Targeting Raspberry Pi + Coral TPU for edge deployment.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">OpenCV</span><span class="tag">PyTorch</span><span class="tag">YOLOv8</span><span class="tag">Coral TPU</span>
+      </div>
+      <a href="https://github.com/your-org/vision-pipeline" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">GitHub ↗</a>
     </div>
 
-    <div class="proj-item rev d3" data-category="autonomy">
-      <div class="flex items-center justify-between mb-5"><span class="tag to">In Dev</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2025</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">Autonomous Ground Vehicle</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">1/10 scale vehicle platform with LiDAR-based SLAM, lane detection, and behavioral cloning from human demonstrations.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">ROS2</span><span class="tag">LiDAR</span><span class="tag">SLAM</span><span class="tag">Python</span></div>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Coming soon</span>
+    <!-- Autonomous Ground Vehicle -->
+    <div class="proj-card reveal delay-3" data-category="dev">
+      <div class="side-accent" aria-hidden="true"></div>
+      <div class="flex items-center justify-between mb-5">
+        <span class="tag tag-violet">In Development</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2025</span>
+      </div>
+      <h3 style="font-weight:700;font-size:17px;margin-bottom:10px">Autonomous Ground Vehicle</h3>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;flex:1;margin-bottom:16px">
+        1/10 scale autonomous platform with LiDAR-based SLAM, lane detection, and behavioral
+        cloning from human demonstrations for testing planning algorithms.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">ROS2</span><span class="tag">LiDAR</span><span class="tag">SLAM</span><span class="tag">Python</span>
+      </div>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Coming soon</span>
     </div>
 
-    <div class="proj-item rev d1" data-category="ml">
-      <div class="flex items-center justify-between mb-5"><span class="tag ta">Active</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2024</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">ML Foundations Library</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Educational library implementing core ML algorithms from scratch in NumPy — backpropagation, attention, convolutions, and optimizers. Used for member training.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Math</span></div>
-      <a href="https://github.com/your-org/ml-foundations" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)">GitHub ↗</a>
+    <!-- ML Foundations -->
+    <div class="proj-card reveal delay-1" data-category="active">
+      <div class="side-accent" aria-hidden="true"></div>
+      <div class="flex items-center justify-between mb-5">
+        <span class="tag tag-teal">Active</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2024</span>
+      </div>
+      <h3 style="font-weight:700;font-size:17px;margin-bottom:10px">ML Foundations Library</h3>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;flex:1;margin-bottom:16px">
+        NumPy implementations of core ML algorithms from scratch — backpropagation,
+        attention, convolutions, and optimizers. Used for member training and math grounding.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Math</span>
+      </div>
+      <a href="https://github.com/your-org/ml-foundations" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">GitHub ↗</a>
     </div>
 
-    <div class="proj-item rev d2" data-category="ml">
-      <div class="flex items-center justify-between mb-5"><span class="tag ta">Active</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2025</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">Transformer Study Group</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Deep-dive into attention mechanisms, positional encodings, and transformer scaling laws. Members implement GPT-2-class models from scratch.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">PyTorch</span><span class="tag">CUDA</span><span class="tag">Theory</span></div>
-      <a href="https://github.com/your-org/transformers" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent)">GitHub ↗</a>
+    <!-- Swarm -->
+    <div class="proj-card reveal delay-2" data-category="planned">
+      <div class="side-accent" aria-hidden="true"></div>
+      <div class="flex items-center justify-between mb-5">
+        <span class="tag" style="border-color:rgba(251,191,36,0.3);color:var(--amber);background:rgba(251,191,36,0.06)">Planned</span>
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">2025</span>
+      </div>
+      <h3 style="font-weight:700;font-size:17px;margin-bottom:10px">Swarm Coordination System</h3>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;flex:1;margin-bottom:16px">
+        Multi-agent coordination protocols for drone swarms using distributed consensus,
+        mesh communication, and emergent behavior design. Planned for Fall 2025.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">Multi-Agent</span><span class="tag">Mesh Net</span><span class="tag">C++</span>
+      </div>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Recruiting contributors</span>
     </div>
 
-    <div class="proj-item rev d3" data-category="autonomy">
-      <div class="flex items-center justify-between mb-5"><span class="tag" style="color:var(--muted)">Planned</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2025</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">Swarm Coordination</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Multi-agent coordination protocols for drone swarms using distributed consensus algorithms, mesh communication, and emergent behavior design.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">Multi-Agent</span><span class="tag">Mesh Net</span><span class="tag">C++</span></div>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Recruiting contributors</span>
-    </div>
+    <!-- ADD MORE PROJECT CARDS HERE — copy the block above -->
+    <!-- Tip: set data-category to "active", "dev", or "planned" -->
 
-    <div class="proj-item rev d1" data-category="embedded">
-      <div class="flex items-center justify-between mb-5"><span class="tag to">In Dev</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2025</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">FPGA Neural Accelerator</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">Hardware implementation of a CNN inference accelerator on Xilinx FPGA using HLS and custom RTL for image classification benchmarks.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">FPGA</span><span class="tag">HLS</span><span class="tag">VHDL</span><span class="tag">Verilog</span></div>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">In progress</span>
-    </div>
-
-    <div class="proj-item rev d2" data-category="vision">
-      <div class="flex items-center justify-between mb-5"><span class="tag" style="color:var(--muted)">Planned</span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">2025</span></div>
-      <h3 class="font-semibold text-lg mb-3" style="color:var(--text)">3D Scene Reconstruction</h3>
-      <p class="text-sm mb-5" style="color:var(--muted);line-height:1.7">NeRF and Gaussian splatting for real-time 3D scene reconstruction from monocular video. Target: drone-captured environments.</p>
-      <div class="flex flex-wrap gap-2 mb-5"><span class="tag">NeRF</span><span class="tag">Python</span><span class="tag">CUDA</span></div>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Planned Fall 2025</span>
-    </div>
-
-  </div>
-
-  <!-- No results fallback -->
-  <div id="no-results" aria-live="polite">
-    <p>No projects found in this category.</p>
-    <p style="margin-top:8px;font-size:10px">Try selecting "All" to see every project.</p>
   </div>
 </section>
 
-<div class="gl max-w-7xl mx-auto px-6" aria-hidden="true"></div>
-
-<!-- ═══ CONTRIBUTE CTA ═══ -->
-<section class="max-w-7xl mx-auto px-6 py-20">
-  <div class="gc p-10 text-center rev" style="border-color:rgba(56,189,248,0.15)">
-    <div class="eyebrow justify-center mb-5">Contribute</div>
-    <h2 class="sec-title mb-4">Want to work on these?</h2>
-    <p class="mb-8 max-w-md mx-auto" style="color:var(--muted);line-height:1.8">All projects are open to lab members. Join the lab or reach out via GitHub to start contributing.</p>
+<!-- CONTRIBUTE CTA -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+  <div class="glass-card p-10 md:p-14 text-center reveal" style="border-color:rgba(99,202,242,0.2);background:linear-gradient(135deg,rgba(8,15,35,0.9),rgba(12,22,52,0.8))">
+    <div class="sec-eyebrow justify-center mb-5">Contribute</div>
+    <h2 class="sec-title mb-4">Want to build these?</h2>
+    <p class="mb-8 max-w-md mx-auto" style="color:var(--text-2);font-size:16px;line-height:1.85">
+      All projects are open to lab members. Join the lab to contribute, or star the repos on GitHub.
+    </p>
     <div class="flex justify-center flex-wrap gap-4">
-      <a href="join.html" class="btn-p">Join the Lab →</a>
-      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-g">GitHub</a>
+      <a href="join.html" class="btn-primary">Join the Lab →</a>
+      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-secondary">View GitHub</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="footerbg border-t" style="border-color:var(--border)">
-  <div class="max-w-7xl mx-auto px-6 py-14">
-    <div class="grid md:grid-cols-4 gap-10 mb-10">
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-grid-bg border-t" style="border-color:var(--border)">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
       <div class="md:col-span-2">
-        <div class="flex items-center gap-3 mb-4">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 8px;background:var(--accent);color:#000;letter-spacing:0.1em">EMAIL</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">AI Lab</span>
+        <div class="flex items-center gap-3 mb-5">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 10px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;letter-spacing:0.12em">EMAIL</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">AI Lab</span>
         </div>
-        <p class="text-sm" style="color:var(--muted);max-width:260px;line-height:1.8">Engineering Minds in Artificial Intelligence Learning — Purdue University Northwest.</p>
-      </div>
-      <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Navigation</div>
-        <div class="flex flex-col gap-3">
-          <a href="index.html"    style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Home</a>
-          <a href="projects.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Projects</a>
-          <a href="members.html"  style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Members</a>
-          <a href="join.html"     style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Join</a>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.85;max-width:270px;margin-bottom:16px">Engineering Minds in Artificial Intelligence Learning — Purdue University Northwest.</p>
+        <div class="flex gap-5">
+          <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+          <a href="/cdn-cgi/l/email-protection#93f6fef2fafff2fafff2f1d3e3fde4bdf6f7e6" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Email ↗</a>
         </div>
       </div>
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Connect</div>
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px">Pages</div>
         <div class="flex flex-col gap-3">
-          <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">GitHub ↗</a>
-          <a href="mailto:emailailab@pnw.edu" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Email ↗</a>
+          <a href="index.html"    class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Home</a>
+          <a href="projects.html" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Projects</a>
+          <a href="members.html"  class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Members</a>
+          <a href="join.html"     class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Join</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px">Connect</div>
+        <div class="flex flex-col gap-3">
+          <a href="https://github.com/your-org"  target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+          <a href="https://discord.gg/your-link" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Discord ↗</a>
+          <a href="/cdn-cgi/l/email-protection#e3868e828a8f828a8f8281a3938d94cd868796" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Email</a>
         </div>
       </div>
     </div>
     <div class="border-t pt-8 flex flex-wrap justify-between gap-4" style="border-color:var(--border)">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)">© 2025 EMAIL AI Lab — Purdue University Northwest</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)">All rights reserved</span>
+      <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">© 2025 EMAIL AI Lab — Purdue University Northwest</span>
+      <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">Built by students, for engineers</span>
     </div>
   </div>
 </footer>
 
-<script>
-/* Security: No innerHTML, no eval, all DOM via safe APIs */
+<script nonce="eml2025prj">
+/*
+ * projects.html — JavaScript
+ * ════════════════════════════════════════════════════════════
+ * HOW TO ADD PROJECTS:
+ *   1. Copy any .project-card div block in HTML
+ *   2. Set data-category="active|in-dev|planned" on the wrapper div
+ *   3. Update title, description, tags, GitHub link, and progress values
+ *   4. Progress bars: set data-width="75" (= 75%) on each .prog-fill span
+ *
+ * HOW TO ADD FILTER BUTTONS:
+ *   1. Add a <button class="filter-btn" data-filter="your-category">Label</button>
+ *   2. Add data-category="your-category" to corresponding project cards
+ *   (filter values must match exactly — case-sensitive)
+ *
+ * CHANGE: see individual comments below for tunable values
+ * ════════════════════════════════════════════════════════════
+ */
+(function() {
+  'use strict';
 
-/* ── MOBILE NAV ── */
-(function(){
-  var btn=document.getElementById('menu-toggle'),menu=document.getElementById('mobile-menu'),o=document.getElementById('ico-open'),c=document.getElementById('ico-close');
-  if(!btn||!menu)return;
-  btn.addEventListener('click',function(){
-    var open=menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open?'true':'false');
-    o.style.display=open?'none':'block';
-    c.style.display=open?'block':'none';
-  });
-})();
+  /* ── Scroll progress bar ── */
+  var prog = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', function() {
+    var s = document.documentElement;
+    prog.style.width = (s.scrollTop / (s.scrollHeight - s.clientHeight) * 100) + '%';
+  }, { passive: true });
 
-/* ── NAV SHADOW ── */
-(function(){
-  var nav=document.getElementById('navbar');
-  window.addEventListener('scroll',function(){nav.style.boxShadow=window.scrollY>20?'0 4px 40px rgba(0,0,0,0.7)':'none';},{passive:true});
-})();
+  /* ── Navbar scroll shadow ── */
+  var nav = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    // CHANGE: 30 = scroll offset (px) before navbar gets elevated shadow
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
 
-/* ── NEURAL CANVAS ── */
-(function(){
-  var cv=document.getElementById('neural-canvas');if(!cv)return;
-  var ctx=cv.getContext('2d'),nodes=[],W,H;
-  var N=Math.min(45,Math.floor(window.innerWidth*window.innerHeight/28000));
-  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
-  function init(){nodes=[];for(var i=0;i<N;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.5+.5});}
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;}
-    for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){
-      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<150){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba(56,189,248,'+(1-d/150)*.3+')';ctx.lineWidth=.5;ctx.stroke();}
+  /* ── Mobile menu ── */
+  var btn    = document.getElementById('menu-toggle');
+  var menu   = document.getElementById('mobile-menu');
+  var iOpen  = document.getElementById('ico-open');
+  var iClose = document.getElementById('ico-close');
+  if (btn && menu) {
+    btn.addEventListener('click', function() {
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (iOpen)  iOpen.style.display  = open ? 'none'  : 'block';
+      if (iClose) iClose.style.display = open ? 'block' : 'none';
+    });
+  }
+
+  /* ── Background ambient canvas ── */
+  var cv = document.getElementById('bg-canvas');
+  if (cv && cv.getContext) {
+    var ctx = cv.getContext('2d'), nodes = [], W, H;
+    // CHANGE: 18000 = density divisor — lower = more particles (heavier)
+    var N = Math.min(50, Math.floor(window.innerWidth * window.innerHeight / 18000));
+    function resize() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+    function init() {
+      nodes = [];
+      for (var i = 0; i < N; i++)
+        // CHANGE: 0.4 = max drift speed per axis per frame
+        nodes.push({ x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4, r:Math.random()*1.8+.4 });
     }
-    for(var i=0;i<nodes.length;i++){ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r,0,Math.PI*2);ctx.fillStyle='rgba(56,189,248,.6)';ctx.fill();}
-    requestAnimationFrame(draw);
-  }
-  resize();init();draw();
-  window.addEventListener('resize',function(){resize();init();},{passive:true});
-})();
-
-/* ── SCROLL REVEAL ── */
-(function(){
-  var els=document.querySelectorAll('.rev');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vis');});return;}
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-  els.forEach(function(e){obs.observe(e);});
-})();
-
-/* ── PROGRESS BARS ── */
-(function(){
-  var bars=document.querySelectorAll('.pf[data-w]');
-  if(!('IntersectionObserver' in window)){bars.forEach(function(b){b.style.width=b.getAttribute('data-w');});return;}
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.width=e.target.getAttribute('data-w');obs.unobserve(e.target);}});},{threshold:.5});
-  bars.forEach(function(b){obs.observe(b);});
-})();
-
-/* ── PROJECT FILTER (functional backend-style filtering) ── */
-(function(){
-  var btns=document.querySelectorAll('.filter-btn');
-  var items=document.querySelectorAll('.proj-item');
-  var noRes=document.getElementById('no-results');
-  var countEl=document.getElementById('proj-count');
-
-  function updateCount(visible){
-    if(countEl) countEl.textContent='Showing '+visible+' project'+(visible!==1?'s':'');
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      for (var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;}
+      // CHANGE: 160 = px distance at which nodes connect with an edge
+      for (var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba(99,202,242,'+(1-d/160)*.2+')';ctx.lineWidth=.5;ctx.stroke();}}
+      for (var i=0;i<nodes.length;i++){ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r,0,Math.PI*2);ctx.fillStyle='rgba(99,202,242,0.5)';ctx.fill();}
+      requestAnimationFrame(draw);
+    }
+    resize(); init(); draw();
+    window.addEventListener('resize', function(){resize();init();}, { passive:true });
   }
 
-  function applyFilter(filter){
-    var vis=0;
-    items.forEach(function(item){
-      var cat=item.getAttribute('data-category');
-      var show=(filter==='all'||cat===filter);
-      /* Safe: className manipulation, not innerHTML */
-      if(show){item.classList.remove('hidden-filter');vis++;}
-      else{item.classList.add('hidden-filter');}
-    });
-    if(noRes) noRes.style.display=vis===0?'block':'none';
-    updateCount(vis);
+  /* ── Scroll reveal ── */
+  var revEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    // CHANGE: threshold:0.1 = 10% visible, rootMargin -40px = trigger 40px early
+    var obs = new IntersectionObserver(function(e) {
+      e.forEach(function(x) { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); }});
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(function(el) { obs.observe(el); });
+  } else { revEls.forEach(function(el) { el.classList.add('visible'); }); }
+
+  /* ── Progress bar fill animation (triggered on scroll-into-view) ── */
+  // CHANGE: bars use data-width="N" attribute (0–100) in HTML to set fill %
+  // CHANGE: threshold:0.3 = bar must be 30% visible before it animates
+  var bars = document.querySelectorAll('.prog-fill');
+  if ('IntersectionObserver' in window) {
+    var barObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.getAttribute('data-width') + '%'; // safe: style.width only
+          barObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(function(b) { barObs.observe(b); });
+  } else {
+    // CHANGE: fallback — just set all bars immediately if no IntersectionObserver
+    bars.forEach(function(b) { b.style.width = b.getAttribute('data-width') + '%'; });
   }
 
-  btns.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      btns.forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      applyFilter(btn.getAttribute('data-filter'));
+  /* ══════════════════════════════════════════════════════
+     PROJECT FILTER BUTTONS
+     Uses data-category on cards and data-filter on buttons.
+     Pure DOM show/hide — no server calls needed (GitHub Pages).
+
+     HOW TO ADD A NEW CATEGORY:
+       1. Add button: <button class="filter-btn" data-filter="new-cat">Label</button>
+       2. Add to cards: <div ... data-category="new-cat">
+       CHANGE: filter values are case-sensitive strings
+  ══════════════════════════════════════════════════════ */
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(filterBtn) {
+    filterBtn.addEventListener('click', function() {
+      /* Deactivate all buttons, activate clicked */
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      filterBtn.classList.add('active');
+
+      var filter = filterBtn.getAttribute('data-filter');
+      // CHANGE: '#projects-grid' must match the id of the container div in HTML
+      var cards  = document.querySelectorAll('#projects-grid [data-category]');
+
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = ''; // CHANGE: use 'grid' if card is a grid cell
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
 
-  /* Init count */
-  updateCount(items.length);
-})();
-<script src="projects.js"></script> 
+}());
+</script>
 </body>
 </html>
