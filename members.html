@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="EMAIL AI Lab Members — Meet the team of student engineers at Purdue University Northwest."/>
+  <meta name="theme-color" content="#030712"/>
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'nonce-eml2025mem'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="X-Frame-Options" content="DENY"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"/>
+
+  <title>Members — EMAIL AI Lab</title>
+  <script src="https://cdn.tailwindcss.com" nonce="eml2025mem"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:#030712; --bg-2:#060d1f; --bg-card:rgba(8,15,35,0.7); --bg-card-hi:rgba(12,22,52,0.85);
+      --border:rgba(99,202,242,0.1); --border-hi:rgba(99,202,242,0.3);
+      --teal:#63caf2; --violet:#a78bfa; --mint:#6ee7b7; --amber:#fbbf24;
+      --text:#e2e8f0; --text-2:#94a3b8; --text-3:#475569;
+      --font-body:'Outfit',sans-serif; --font-mono:'Fira Code',monospace; --font-display:'Bricolage Grotesque',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.35;}
+    .aurora{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);z-index:0;}
+    .aurora-1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(167,139,250,0.07) 0%,transparent 70%);animation:orb1 22s ease-in-out infinite alternate;}
+    .aurora-2{width:400px;height:400px;bottom:15%;left:-80px;background:radial-gradient(circle,rgba(99,202,242,0.06) 0%,transparent 70%);animation:orb2 18s ease-in-out infinite alternate;}
+    @keyframes orb1{0%{transform:translate(0,0)}100%{transform:translate(-60px,70px)}}
+    @keyframes orb2{0%{transform:translate(0,0)}100%{transform:translate(50px,-50px)}}
+    body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.018'/%3E%3C/svg%3E");opacity:0.6;}
+    nav,main,section,footer,header{position:relative;z-index:10;}
+
+    #navbar{background:rgba(3,7,18,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow 0.4s,border-color 0.4s;}
+    #navbar.scrolled{box-shadow:0 8px 48px rgba(0,0,0,0.8);border-color:var(--border-hi);}
+    .nav-link{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2);transition:color 0.25s;position:relative;padding-bottom:3px;}
+    .nav-link::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:linear-gradient(90deg,var(--teal),var(--violet));transition:width 0.35s cubic-bezier(.4,0,.2,1);}
+    .nav-link:hover{color:var(--teal);} .nav-link:hover::after,.nav-link.active::after{width:100%;} .nav-link.active{color:var(--teal);}
+
+    .btn-primary{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;font-weight:600;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;transition:box-shadow 0.3s,transform 0.2s;}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.4s;}
+    .btn-primary:hover{box-shadow:0 0 40px rgba(99,202,242,0.4);transform:translateY(-2px);} .btn-primary:hover::before{transform:translateX(0);}
+    .btn-secondary{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 24px;border:1px solid var(--border-hi);color:var(--text);display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;}
+    .btn-secondary:hover{border-color:var(--teal);color:var(--teal);background:rgba(99,202,242,0.06);}
+
+    .sec-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;}
+    .sec-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);}
+    .sec-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-0.025em;line-height:1.1;}
+    .grad-text-warm{background:linear-gradient(135deg,var(--teal) 0%,var(--mint) 50%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--border);color:var(--text-3);}
+
+    /* Leadership card */
+    .leader-card{background:var(--bg-card);border:1px solid var(--border);padding:28px;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(.4,0,.2,1);}
+    .leader-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);transform:scaleX(0);transition:transform 0.4s;}
+    .leader-card:hover{border-color:var(--border-hi);transform:translateY(-6px);box-shadow:0 24px 80px rgba(99,202,242,0.1);}
+    .leader-card:hover::before{transform:scaleX(1);}
+
+    /* Avatar */
+    .avatar{width:68px;height:68px;border-radius:50%;background:rgba(99,202,242,0.08);border:1px solid rgba(99,202,242,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--teal);transition:all 0.35s;flex-shrink:0;}
+    .leader-card:hover .avatar{background:rgba(99,202,242,0.12);box-shadow:0 0 28px rgba(99,202,242,0.2);}
+    .avatar-sm{width:52px;height:52px;font-size:14px;}
+
+    /* Member card */
+    .member-card{background:var(--bg-card);border:1px solid var(--border);padding:20px;display:flex;gap:16px;align-items:flex-start;transition:all 0.3s;}
+    .member-card:hover{border-color:var(--border-hi);background:var(--bg-card-hi);transform:translateX(4px);}
+
+    /* Role badge */
+    .role-badge{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:3px 10px;background:rgba(99,202,242,0.07);border:1px solid rgba(99,202,242,0.2);color:var(--teal);display:inline-block;margin-bottom:8px;}
+
+    .glass-card{background:var(--bg-card);border:1px solid var(--border);transition:border-color 0.35s,box-shadow 0.35s,transform 0.35s;position:relative;overflow:hidden;}
+    .glass-card:hover{border-color:var(--border-hi);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+    .glow-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-hi),transparent);}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(.4,0,.2,1),transform 0.8s cubic-bezier(.4,0,.2,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.2s;}.delay-3{transition-delay:0.3s;}.delay-4{transition-delay:0.4s;}
+    #mobile-menu{display:none;background:rgba(3,7,18,0.98);backdrop-filter:blur(24px);border-top:1px solid var(--border);}
+    #mobile-menu.open{display:block;}
+    a.hover-teal{transition:color 0.2s;} a.hover-teal:hover{color:var(--teal);}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--teal),var(--violet));z-index:100;}
+    .footer-grid-bg{background-image:linear-gradient(rgba(99,202,242,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(99,202,242,0.02) 1px,transparent 1px);background-size:56px 56px;}
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div class="aurora aurora-1" aria-hidden="true"></div>
+<div class="aurora aurora-2" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3" aria-label="EMAIL AI Lab — Home">
+      <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 10px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;letter-spacing:0.12em">EMAIL</span>
+      <div class="flex flex-col leading-none">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--teal);letter-spacing:0.1em">AI Lab</span>
+        <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-3);letter-spacing:0.15em;text-transform:uppercase">Purdue NW</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="index.html"    class="nav-link">Home</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="members.html"  class="nav-link active" aria-current="page">Members</a>
+      <a href="join.html"     class="nav-link">Join</a>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="join.html" class="btn-primary">Join the Lab</a>
+    </div>
+    <button id="menu-toggle" class="md:hidden p-2" style="color:var(--text-2)" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="ico-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="ico-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
+      <a href="index.html"    style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Home</a>
+      <a href="projects.html" style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Projects</a>
+      <a href="members.html"  style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal)">Members</a>
+      <a href="join.html"     style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2)">Join</a>
+      <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- PAGE HEADER -->
+<header class="border-b" style="border-color:var(--border);background:linear-gradient(180deg,rgba(6,13,31,0.8),transparent)">
+  <div class="max-w-7xl mx-auto px-6 py-20">
+    <div class="sec-eyebrow reveal mb-5">The Team</div>
+    <h1 class="sec-title reveal delay-1 mb-5">
+      Lab <span class="grad-text-warm">Members</span>
+    </h1>
+    <p class="reveal delay-2 max-w-2xl" style="color:var(--text-2);font-size:16px;line-height:1.85">
+      Engineering students from Purdue University Northwest building real AI systems, together.
+    </p>
+  </div>
+</header>
+
+<!-- LEADERSHIP -->
+<section class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="leaders-h">
+  <div class="sec-eyebrow reveal mb-10">Leadership</div>
+
+  <!-- CUSTOMIZE all officer cards below -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <!-- ════ LEADERSHIP CARD TEMPLATE ════
+         Customize: initials, role, name, major/year, bio, tags, GitHub/LinkedIn
+    ════════════════════════════════════ -->
+
+    <!-- President -->
+    <div class="leader-card reveal delay-1">
+      <!-- Replace initials with <img> tag for a real photo -->
+      <div class="avatar mb-5">YN</div>
+      <div class="role-badge">President</div>
+      <h2 style="font-weight:700;font-size:17px;margin-bottom:4px">Your Name</h2>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:14px">Computer Engineering · Junior</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:16px">
+        Leads lab direction and project strategy. Research focus on autonomous systems and embedded ML inference pipelines.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">Autonomy</span>
+        <span class="tag">Embedded</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <!-- Vice President -->
+    <div class="leader-card reveal delay-2">
+      <div class="avatar mb-5">VP</div>
+      <div class="role-badge">Vice President</div>
+      <h2 style="font-weight:700;font-size:17px;margin-bottom:4px">Your Name</h2>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:14px">Electrical Engineering · Senior</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:16px">
+        Oversees technical operations and coordinates cross-project collaboration. Specializes in ML theory and optimization.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">ML Theory</span>
+        <span class="tag">Optimization</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <!-- Treasurer -->
+    <div class="leader-card reveal delay-3">
+      <div class="avatar mb-5">TR</div>
+      <div class="role-badge">Treasurer</div>
+      <h2 style="font-weight:700;font-size:17px;margin-bottom:4px">Your Name</h2>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:14px">Computer Science · Junior</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:16px">
+        Manages lab resources and hardware budget. Research interests in computer vision and real-time processing systems.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">Vision</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <!-- Secretary -->
+    <div class="leader-card reveal delay-4">
+      <div class="avatar mb-5">SC</div>
+      <div class="role-badge">Secretary</div>
+      <h2 style="font-weight:700;font-size:17px;margin-bottom:4px">Your Name</h2>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:14px">Mechanical Engineering · Sophomore</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:16px">
+        Manages documentation, onboarding, and meeting records. Focus on autonomous systems hardware and platform integration.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag">Hardware</span>
+        <span class="tag">Robotics</span>
+      </div>
+      <div class="flex gap-4">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">LinkedIn ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="glow-divider max-w-7xl mx-auto" aria-hidden="true"></div>
+
+<!-- MEMBERS -->
+<section class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="members-h">
+  <div class="sec-eyebrow reveal mb-10">Members</div>
+
+  <!-- CUSTOMIZE member cards — copy/paste to add more -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+    <!-- ════ MEMBER CARD TEMPLATE ════ -->
+    <div class="member-card reveal delay-1">
+      <div class="avatar avatar-sm">M1</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">ECE · Sophomore</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Embedded</span><span class="tag">C++</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card reveal delay-2">
+      <div class="avatar avatar-sm">M2</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">CS · Junior</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">ML</span><span class="tag">Python</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card reveal delay-3">
+      <div class="avatar avatar-sm">M3</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">ME · Junior</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Robotics</span><span class="tag">ROS2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card reveal delay-1">
+      <div class="avatar avatar-sm">M4</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">CS · Freshman</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Vision</span><span class="tag">OpenCV</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card reveal delay-2">
+      <div class="avatar avatar-sm">M5</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">ECE · Senior</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">FPGA</span><span class="tag">VHDL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card reveal delay-3">
+      <div class="avatar avatar-sm">M6</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px">Member Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">CS · Sophomore</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">ML</span><span class="tag">Math</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD MORE MEMBER CARDS HERE — copy block above -->
+
+    <!-- "Open Spot" placeholder -->
+    <div class="member-card reveal delay-2" style="border-style:dashed;opacity:0.5">
+      <div class="avatar avatar-sm" style="border-style:dashed;background:transparent">+</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:3px;color:var(--text-2)">Open Spot</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-bottom:10px">Your major · Your year</div>
+        <a href="join.html" style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">Join us →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="glow-divider max-w-7xl mx-auto" aria-hidden="true"></div>
+
+<!-- FACULTY ADVISOR -->
+<section class="max-w-7xl mx-auto px-6 py-20" aria-labelledby="advisor-h">
+  <!-- CUSTOMIZE or remove if no advisor yet -->
+  <div class="sec-eyebrow reveal mb-8">Faculty Advisor</div>
+  <div class="glass-card p-8 max-w-xl reveal delay-1">
+    <div class="flex gap-6 items-start">
+      <div class="avatar" style="background:rgba(167,139,250,0.08);border-color:rgba(167,139,250,0.25);color:var(--violet);flex-shrink:0">FA</div>
+      <div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:4px">Dr. Faculty Name</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:12px">Faculty Advisor — Position TBD</div>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.75;margin-bottom:16px">
+          The lab is actively seeking a faculty advisor from the College of Engineering.
+          Interested faculty may contact the lab president directly.
+        </p>
+        <a href="/cdn-cgi/l/email-protection#8aefe7ebe3e6ebe3e6ebe8cafae4fda4efeeff" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">Contact us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+  <div class="glass-card p-10 md:p-14 text-center reveal" style="border-color:rgba(99,202,242,0.2);background:linear-gradient(135deg,rgba(8,15,35,0.9),rgba(12,22,52,0.8))">
+    <div class="sec-eyebrow justify-center mb-5">Open Enrollment</div>
+    <h2 class="sec-title mb-4">Want to be listed here?</h2>
+    <p class="mb-8 max-w-md mx-auto" style="color:var(--text-2);font-size:16px;line-height:1.85">
+      EMAIL AI Lab is open to all PNW engineering and STEM students with a passion for AI and serious engineering.
+    </p>
+    <a href="join.html" class="btn-primary">Join the Lab →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-grid-bg border-t" style="border-color:var(--border)">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-5">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;padding:5px 10px;background:linear-gradient(135deg,var(--teal),#4ab8e8);color:#030712;letter-spacing:0.12em">EMAIL</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">AI Lab</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.85;max-width:270px;margin-bottom:16px">Engineering Minds in Artificial Intelligence Learning — Purdue University Northwest.</p>
+        <div class="flex gap-5">
+          <a href="https://github.com/your-org" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+          <a href="/cdn-cgi/l/email-protection#d1b4bcb0b8bdb0b8bdb0b391a1bfa6ffb4b5a4" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Email ↗</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px">Pages</div>
+        <div class="flex flex-col gap-3">
+          <a href="index.html"    class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Home</a>
+          <a href="projects.html" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Projects</a>
+          <a href="members.html"  class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Members</a>
+          <a href="join.html"     class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Join</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px">Connect</div>
+        <div class="flex flex-col gap-3">
+          <a href="https://github.com/your-org"  target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">GitHub ↗</a>
+          <a href="https://discord.gg/your-link" target="_blank" rel="noopener noreferrer" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Discord ↗</a>
+          <a href="/cdn-cgi/l/email-protection#aacfc7cbc3c6cbc3c6cbc8eadac4dd84cfcedf" class="hover-teal" style="font-family:var(--font-mono);font-size:11px;color:var(--text-3)">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t pt-8 flex flex-wrap justify-between gap-4" style="border-color:var(--border)">
+      <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">© 2025 EMAIL AI Lab — Purdue University Northwest</span>
+      <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-3)">Built by students, for engineers</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script nonce="eml2025mem">
+(function() {
+  'use strict';
+  var prog = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', function() { var s=document.documentElement; prog.style.width=(s.scrollTop/(s.scrollHeight-s.clientHeight)*100)+'%'; }, {passive:true});
+  var nav=document.getElementById('navbar');
+  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled',window.scrollY>30); }, {passive:true});
+  var btn=document.getElementById('menu-toggle'), menu=document.getElementById('mobile-menu'), iO=document.getElementById('ico-open'), iC=document.getElementById('ico-close');
+  btn.addEventListener('click', function() { var o=menu.classList.toggle('open'); btn.setAttribute('aria-expanded',o?'true':'false'); iO.style.display=o?'none':'block'; iC.style.display=o?'block':'none'; });
+  var cv=document.getElementById('bg-canvas');
+  if(cv&&cv.getContext){var ctx=cv.getContext('2d'),nodes=[],W,H;var N=Math.min(45,Math.floor(window.innerWidth*window.innerHeight/20000));function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}function init(){nodes=[];for(var i=0;i<N;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.4});}function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;}for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<150){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba(99,202,242,'+(1-d/150)*.18+')';ctx.lineWidth=.5;ctx.stroke();}}for(var i=0;i<nodes.length;i++){ctx.beginPath();ctx.arc(nodes[i].x,nodes[i].y,nodes[i].r,0,Math.PI*2);ctx.fillStyle='rgba(99,202,242,0.5)';ctx.fill();}requestAnimationFrame(draw);}resize();init();draw();window.addEventListener('resize',function(){resize();init();},{passive:true});}
+  var revEls=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible'); obs.unobserve(x.target); }});}, { threshold:0.1, rootMargin:'0px 0px -40px 0px' });
+    revEls.forEach(function(el){obs.observe(el);});
+  } else { revEls.forEach(function(el){el.classList.add('visible');}); }
+
+}());
+</script>
+</body>
+</html>
